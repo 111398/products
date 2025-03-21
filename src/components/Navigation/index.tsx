@@ -15,7 +15,7 @@ function Navigation() {
   };
   return (
     <>
-      <header className={styles.header}>
+      <header className={styles.header} data-testid='layout'>
         <nav className={styles.navigation}>
           <img className={styles.logo} src={logo} onClick={navigateHelper} />
           {links.map((link) => (
