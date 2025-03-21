@@ -1,25 +1,19 @@
 import { useState } from 'react';
-import GalleryItem from './components/GalleryItem';
+import Gallery from '../../components/Gallery';
 import useGetData from '../../hooks/useGetData';
 import styles from './index.module.css';
 
-function Products() {
+function Characters() {
   const [currentPage, setCurrentPage] = useState(1);
-
   const [data, pages] = useGetData(currentPage);
-
   const paginationHelper = (e: React.MouseEvent<HTMLSpanElement>) => {
     const pg = Number(e.currentTarget.getAttributeNode('data-page')?.value);
     setCurrentPage(pg);
   };
-
   return (
     <div className={styles.container}>
-      <h3 className={styles.text}>Galeery</h3>
-      <div className={styles.gallery}>
-        {data &&
-          data.results.map((el) => <GalleryItem item={el} key={el.id} />)}
-      </div>
+      <h3 className={styles.text}>Gallery</h3>
+      <Gallery data={data?.results} />
       <div className={styles.pagination}>
         {pages &&
           pages.map((pg) => (
@@ -37,4 +31,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Characters;

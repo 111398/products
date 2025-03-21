@@ -1,9 +1,9 @@
 import Layout from './components/Layout';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Products from './components/Products';
-import Stash from './components/Stash';
+import Liked from './pages/Liked';
+import Characters from './pages/Characters';
+import HomePage from './pages/HomePage';
 import './App.css';
-import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/stash' element={<Stash />} />
+          <Route path='/characters' element={<Characters />} />
+          <Route path='/liked' element={<Liked />} />
         </Routes>
       </Layout>
     </Router>

@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ICharacter } from '../../types';
 
 interface CharacterLikeState {
-  characters: number[];
+  characters: ICharacter[];
 }
 
 const initialState: CharacterLikeState = {
@@ -12,12 +13,12 @@ export const characterLikeSlice = createSlice({
   name: 'characters',
   initialState,
   reducers: {
-    like: (state, action: PayloadAction<number>) => {
+    like: (state, action: PayloadAction<ICharacter>) => {
       state.characters.push(action.payload);
     },
     unlike: (state, action: PayloadAction<number>) => {
       state.characters = state.characters.filter(
-        (id: number) => id !== action.payload
+        (char) => char.id !== action.payload
       );
     },
   },

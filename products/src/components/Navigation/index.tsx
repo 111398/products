@@ -4,8 +4,8 @@ import styles from './index.module.css';
 import logo from '/5502029.jpeg';
 
 const links = [
-  { id: 2, name: 'products', to: '/products' },
-  { id: 3, name: 'stash', to: '/stash' },
+  { id: 2, name: 'characters', to: '/characters' },
+  { id: 3, name: 'liked', to: '/liked' },
 ];
 
 function Navigation() {

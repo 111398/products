@@ -8,7 +8,7 @@ function GalleryItem({ item }: IGalleryItemProps) {
       <p className={styles.name}>{item.name}</p>
       <img className={styles.image} src={item.image} />
       <div className={styles.heart}>
-        <Heart id={item.id} />
+        <Heart item={item} />
       </div>
     </div>
   );
