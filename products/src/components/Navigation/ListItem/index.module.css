@@ -1,0 +1,14 @@
+.links {
+  display: inline-block;
+  margin: 10px;
+  font-size: 35px;
+}
+.links a {
+  text-decoration: none;
+}
+.links.hide {
+  display: none;
+}
+.links:hover {
+  cursor: pointer;
+}
