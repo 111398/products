@@ -8,7 +8,6 @@ function Liked() {
     (store: RootState) => store.characters.characters
   );
 
-  console.log(characters);
   return (
     <div className={styles.container}>
       <h3>Liked</h3>

@@ -8,7 +8,7 @@ import { memo, useMemo } from 'react';
 import styles from './index.module.css';
 import cn from 'classnames';
 
-const Heart = memo(({ item }: IGalleryItemProps) => {
+function Heart({ item }: IGalleryItemProps) {
   const dispatch = useDispatch();
   const characters = useSelector(
     (state: RootState) => state.characters.characters
@@ -33,6 +33,6 @@ const Heart = memo(({ item }: IGalleryItemProps) => {
       alt='image'
     />
   );
-});
+}
 
-export default Heart;
+export default memo(Heart);
