@@ -3,6 +3,7 @@ name: Build, Dockerize and Deploy
 on:
   push:
     branches: ['master']
+    branches-ignore: ['master']
 
 jobs:
   build:

@@ -1,0 +1,12 @@
+rules:
+  - pattern: 'master'
+    required_approving_review_count: 1
+    enforce_admins: true
+    required_status_checks:
+      strict: true
+      contexts: []
+    restrictions:
+      users: []
+      teams: []
+    required_pull_request: true
+    require_code_owner_reviews: false
