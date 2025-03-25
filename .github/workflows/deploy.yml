@@ -22,7 +22,7 @@ jobs:
         run: npm run build
 
       - name: Build Docker image
-        run: docker build -t rickandmorty-app .
+        run: docker build -t rickandmorty .
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
@@ -33,8 +33,8 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag rickandmorty-app ghcr.io/${{ github.repository_owner }}/rickandmorty-app:latest
-          docker push ghcr.io/${{ github.repository_owner }}/rickandmorty-app:latest
+          docker tag rickandmorty ghcr.io/${{ github.repository_owner }}/rickandmorty:latest
+          docker push ghcr.io/${{ github.repository_owner }}/rickandmorty:latest
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
