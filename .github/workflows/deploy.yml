@@ -8,13 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       pages: write
       id-token: write
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -25,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Build with Vite
-        run: npm run build #
+        run: npm run build
 
       - name: Build Docker image
         run: docker build -t rickandmorty .
@@ -39,9 +41,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          # Тегируем образ для GHCR
           docker tag rickandmorty ghcr.io/${{ github.repository_owner }}/rickandmorty:latest
-          # Пушим образ в реестр
           docker push ghcr.io/${{ github.repository_owner }}/rickandmorty:latest
 
       - name: Deploy to GitHub Pages
@@ -49,4 +49,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          keep_files: false # Очищать предыдущие файлы перед деплоем
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
